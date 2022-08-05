@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoItX3Lib;
 
 namespace addressbook_tests_autoit
 {
@@ -48,11 +49,11 @@ namespace addressbook_tests_autoit
             CloseGroupsDialogue();
         }
 
-        public void Remove(GroupData removedGroup)
+        public void Remove()
         {
             OpenGroupsDialogue();
-            aux.ControlTreeView(GROUPWINTITLE,"", "WindowsForms10.SysTreeView32.app.0.1114f811",
-                "Select", "Contact Groups|" + removedGroup.Name, "");
+            aux.ControlTreeView(GROUPWINTITLE, "", "WindowsForms10.SysTreeView32.app.0.1114f811",
+               "Select", "#0|#0", "");
             aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.1114f811");
             aux.WinWait(DELETEGROUPWINTITLE);
             aux.ControlClick(DELETEGROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.1114f813");
