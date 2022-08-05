@@ -23,12 +23,12 @@ namespace addressbook_tests_autoit
             List<GroupData> list = new List<GroupData>();
             OpenGroupsDialogue();
             string count = aux.ControlTreeView(
-                GROUPWINTITLE, "", "WindowsForms10.SysTreeView32.app.0.1114f811",
+                GROUPWINTITLE, "", "WindowsForms10.SysTreeView32.app.0.2c908d51",
                 "GetItemCount", "#0", "");
             for (int i = 0; i < int.Parse(count); i++)
             {
                 string item = aux.ControlTreeView(
-                    GROUPWINTITLE, "", "WindowsForms10.SysTreeView32.app.0.1114f811",
+                    GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d51",
                     "GetText", "#0|#"+i, "");
                 list.Add(new GroupData()
                 {
@@ -43,7 +43,7 @@ namespace addressbook_tests_autoit
         public void Add(GroupData newGroup)
         {
             OpenGroupsDialogue();
-            aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.1114f813");
+            aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d53");
             aux.Send(newGroup.Name);
             aux.Send("{ENTER}");
             CloseGroupsDialogue();
@@ -52,23 +52,23 @@ namespace addressbook_tests_autoit
         public void Remove()
         {
             OpenGroupsDialogue();
-            aux.ControlTreeView(GROUPWINTITLE, "", "WindowsForms10.SysTreeView32.app.0.1114f811",
+            aux.ControlTreeView(GROUPWINTITLE, "", "WindowsForms10.SysTreeView32.app.0.2c908d51",
                "Select", "#0|#0", "");
-            aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.1114f811");
+            aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d51");
             aux.WinWait(DELETEGROUPWINTITLE);
-            aux.ControlClick(DELETEGROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.1114f813");
+            aux.ControlClick(DELETEGROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d53");
             aux.WinWait(GROUPWINTITLE);
             CloseGroupsDialogue();
         }
 
        public void CloseGroupsDialogue()
         {
-            aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.1114f814");
+            aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d54");
         }
 
        public void OpenGroupsDialogue()
         {
-            aux.ControlClick(WINTITLE, "", "WindowsForms10.BUTTON.app.0.1114f8112");
+            aux.ControlClick(WINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d512");
             aux.WinWait(GROUPWINTITLE);
         }
     }
